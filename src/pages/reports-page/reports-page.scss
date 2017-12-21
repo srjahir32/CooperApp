@@ -1,0 +1,41 @@
+page-reports-page {
+    .back-button.show-back-button{
+        color: #fff;
+    }
+    .toolbar{
+        .toolbar-background{
+            background-color: $salescall_primary;
+        }
+        .toolbar-content{
+            .toolbar-title{
+                color: #fff;
+            }
+        }
+    }
+    .item{
+            padding: 0 0 10px;
+    border-bottom: 1px solid #ddd;
+    .label{
+        margin: 0;
+    }
+        p{
+            white-space: normal;
+            line-height: 18px;
+            // font-size: 13px;
+            color: $salescall_primary;
+        }
+    }
+    .datetime{
+        color: $salescall_primary;
+    }
+    .button-default{
+        height: 40px;
+        min-width: 150px;
+        font-size: 14px;
+        text-transform: uppercase;
+        background: $salescall_primary;
+        background: -moz-linear-gradient(top, $salescall_primary 0%, $salescall_secondary 100%); 
+        background: -webkit-linear-gradient(top, $salescall_primary 0%,$salescall_secondary 100%);
+        background: linear-gradient(to bottom, $salescall_primary 0%,$salescall_secondary 100%); 
+    }
+}

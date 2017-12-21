@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-sim": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-spinner-dialog": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.ionicframework.Salescall816476"
+    }
+  }
+}

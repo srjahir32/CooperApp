@@ -1,0 +1,65 @@
+<!--
+  Generated template for the Settings page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+       <ion-buttons start>
+        <button ion-button icon-only (click)="logout()">
+            <ion-icon name="power"></ion-icon>
+        </button>
+    </ion-buttons>            
+    <ion-title>Settings</ion-title>    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <!--  Settings Form Starts  -->
+    <form class="settings-form-wrapper" [formGroup]="settingsForm" (ngSubmit)="onSubmit(settingsForm.value)">
+        <h3 text-center>Update Your Details</h3>
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Last name</ion-label>
+                <ion-input type="text" placeholder="Change Name" formControlName="username"></ion-input>
+                <ion-icon name="person" item-right></ion-icon>   
+            </ion-item>
+            <div class="error-container" *ngIf="formErrors.username">
+                <div *ngFor="let errors of formErrors.username">
+                    <p class="alert-danger">{{ errors }}</p>
+                </div>
+            </div>
+            <ion-item>
+                <ion-label stacked>Phone No.</ion-label>
+                <ion-input type="tel" Placeholder="Change PhoneNumber" [textMask]="{mask: phoneNumberMask}" formControlName="phone"></ion-input>
+                <ion-icon name="keypad" item-right></ion-icon>  
+            </ion-item>
+            <div class="error-container" *ngIf="formErrors.phone">
+                <div *ngFor="let errors of formErrors.phone" >
+                    <p class="alert-danger">{{ errors }}<p>
+                </div>
+            </div>
+            <ion-item>
+                <ion-label stacked>Build No.</ion-label>
+                <ion-input class="buildno" formControlName="buildno" [readonly]="true"></ion-input>
+                <ion-icon name="barcode" item-right></ion-icon>  
+            </ion-item>
+            <div class="error-container">
+            </div>
+            <ion-item>
+                <ion-label stacked>Calls Made Today</ion-label>
+                <ion-label class="buildno">{{count}}</ion-label>
+            </ion-item>
+            <div class="error-container">
+            </div>
+        </ion-list>
+        <div text-center margin-top>
+            <button ion-button round type="submit" [disabled]="!settingsForm.valid">Update</button>
+        </div>
+    </form>
+    <!--  Settings Form Ends  -->
+</ion-content>

@@ -1,0 +1,58 @@
+page-home {
+    .login-bg{
+        margin-bottom: 25px;
+    }
+    .login-form-wrapper{
+        padding: 0 10px;
+        h3{
+            color: $salescall_text;
+            margin: 25px auto;
+        }
+        .item{
+            padding-left: 0;
+        }
+        input{
+            color: $salescall_primary;
+        }
+        .item-icon{
+            color: $salescall_primary;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+        .item-input{
+            &:first-child{
+                border-top: 0;
+            }
+            &.input-has-focus{
+                &:last-child{
+                    border-bottom-color: $salescall_primary;
+                    box-shadow: inset 0 -1px 0 0 $salescall_primary;
+                }
+                .item-inner{
+                    border-bottom-color: $salescall_primary;
+                    box-shadow: inset 0 -1px 0 0 $salescall_primary;
+                }
+            }
+        }
+        .error-container{
+            min-height: 40px;
+            padding: 1px;
+        }
+        .alert-danger{
+            color: #ff0000;
+            margin: 0;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .button-default{
+            height: 40px;
+            min-width: 150px;
+            font-size: 14px;
+            text-transform: uppercase;
+            background: $salescall_primary;
+            background: -moz-linear-gradient(top, $salescall_primary 0%, $salescall_secondary 100%); 
+            background: -webkit-linear-gradient(top, $salescall_primary 0%,$salescall_secondary 100%);
+            background: linear-gradient(to bottom, $salescall_primary 0%,$salescall_secondary 100%); 
+        }
+    }
+}

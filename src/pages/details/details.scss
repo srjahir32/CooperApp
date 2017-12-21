@@ -1,0 +1,287 @@
+page-details {
+    @import "../../../node_modules/ionic2-auto-complete/src/auto-complete";
+    .toolbar{
+        .toolbar-background{
+            background-color: $salescall_primary;
+        }
+        button{
+            color: #fff;
+        }
+        .toolbar-content{
+            display: flex;
+            .button-default{
+                box-shadow: none;  
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
+                background-color: transparent;
+            }
+            .toolbar-title{
+                color: #fff;
+            }
+        }
+    }
+    .searchbar-ios{
+        background: transparent;
+        text-align: left;
+        .searchbar-left-align{
+            .searchbar-input{
+                padding-left: 5px;
+            }
+        }
+    }
+    .searchbar-ios.searchbar-left-aligned .searchbar-input{
+        padding-left: 5px;
+    }
+    ion-auto-complete {
+        width: calc(100% - 8px - 8px);
+        ul{
+            left: 5px;
+            li{
+                padding: 8px;
+                font-size: 1.3rem;
+                transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -webkit-transition: all 0.3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background: $salescall_primary;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .searchbar-search-icon{
+        display: none;
+    }
+    .info-wrapper{
+        color:  $salescall_primary;
+        .info-heading{
+            color: #000;
+            font-size: 16px;
+            .icon{
+                font-size: 24px;
+                color: $salescall_primary;
+            }
+        }
+        &.info-content{
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease-in-out;
+            -moz-transition: height 0.3s ease-in-out;
+            -webkit-transition: height 0.3s ease-in-out;
+            &.open{
+                height: 160px;
+                transition: height 0.3s ease-in-out;
+                -moz-transition: height 0.3s ease-in-out;
+                -webkit-transition: height 0.3s ease-in-out;
+            }
+        }
+    }
+    .details-form-wrapper{
+        .item{
+            padding-left: 0;
+        }
+        .col{
+            padding-top: 0;
+            .label{
+                margin-top: 6px;
+            }
+            .searchbar-input{
+                margin-top: 0;
+            }
+        }
+        small{
+            vertical-align: top;
+        }
+        .searchbar-input{
+            line-height: initial;
+            box-shadow: none;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            font-size: inherit;
+            text-transform: uppercase;
+            border-radius: 0;
+        }
+        .searchbar-input,
+        .text-input,
+        input.text-input{
+            color: $salescall_primary;
+            margin: 0;
+            border: 1px solid;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        .item-icon{
+            color: $salescall_primary;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+        .item-input{
+            &:first-child{
+                border-top: 0;
+            }
+            &.input-has-focus{
+                &:last-child{
+                    border-bottom-color: $salescall_primary;
+                    box-shadow: inset 0 -1px 0 0 $salescall_primary;
+                }
+                .label{
+                    /*color: $salescall_primary;*/
+                }
+                .item-inner{
+                    border-bottom-color: $salescall_primary;
+                    box-shadow: inset 0 -1px 0 0 $salescall_primary;
+                }
+            }
+        }
+        .search-row{
+            .col{
+                display: flex;
+                .icon{
+                    padding: 3px;
+                    font-size: 25px;
+                    color: $salescall_primary;
+                }
+            }
+        }
+        .like-wrapper{
+            .col{
+                height: 55px;
+                .label{
+                    margin-top: 14px;
+                }
+            }
+            .list-ios > .item-block:first-child,
+                .list-ios > .item-block:last-child{
+                border: 0;
+            }
+            .item{
+                &.item-radio-checked{
+                    .icon[name="thumbs-up"]{    
+                        color: green;
+                    }
+                    .icon[name="thumbs-down"]{
+                        color: $danger;
+                    }
+                }
+            }
+
+            .item-inner{
+                border: 0;
+                text-align: center;
+            }
+
+            .list{
+                display: flex;
+                margin: 0;
+                .label{
+                    margin: 0;
+                }
+                .radio-icon{
+                    display: none;
+                }
+            }
+        }
+        .buildno{
+            color: $salescall_primary;
+        }
+        .error-container{
+            min-height: 20px;
+            padding: 1px;
+        }
+        .alert-danger{
+            color: #ff0000;
+            margin: 0;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .icon{
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .button{
+            padding: 0;
+            height: auto;
+            width: auto;
+        }
+        .emoji-wrapper{
+            .col{
+                height: 55px;
+                .label{
+                    margin-top: 14px;
+                }
+            }
+            .list-ios > .item-block:last-child,
+                .list-ios > .item-block:first-child{
+                border: 0;
+            }
+            .list{
+                display: flex;
+                margin: 0;
+                .label{
+                    margin: 0;
+                    img{
+                        vertical-align: middle;
+                        max-width: 38px;
+                        margin: 0 auto;
+                        &:last-of-type{
+                            display: none;
+                        }
+                    }
+                }
+                .item{
+                    .label{
+                        text-align: center;
+                    }
+                    &.item-radio-checked{
+                        .label{
+                            margin: 0;
+                            color: $salescall_primary;
+                            img{
+                                &:first-of-type{
+                                    display: none;
+                                }
+                                &:last-of-type{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    &:first-child{
+                        .item-inner{
+                            text-align: right;
+                        }
+                    }
+                    &:last-child{
+                        .item-inner{
+                            text-align: left;
+                        }
+                    }
+                }
+                .radio-icon{
+                    display: none;
+                }
+            }
+            .item{
+                &.selected{
+                    color: $salescall_primary;
+                }
+            }
+            .item-inner{
+                text-align: center;
+                font-size: 13px;
+                border: 0;
+            }
+        }
+        .button-default{
+            height: 40px;
+            min-width: 150px;
+            font-size: 14px;
+            text-transform: uppercase;
+            background: $salescall_primary;
+            background: -moz-linear-gradient(top, $salescall_primary 0%, $salescall_secondary 100%); 
+            background: -webkit-linear-gradient(top, $salescall_primary 0%,$salescall_secondary 100%);
+            background: linear-gradient(to bottom, $salescall_primary 0%,$salescall_secondary 100%); 
+        }
+    }
+}

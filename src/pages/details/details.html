@@ -1,0 +1,154 @@
+<!--
+  Generated template for the Details page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+            <button *ngIf="userInfo.phone == '1111111111'" ion-button icon-only (click)="navigatePage('reports')">
+                <ion-icon name="document"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="navigatePage('settings')">
+                    <ion-icon name="settings"></ion-icon>
+            </button>
+        </ion-buttons>
+        <!--<button ion-button icon-only item-left (click)="exitApplication()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>-->
+        <ion-title>Cooper Sales Call</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid border-bottom class="info-wrapper">
+        <ion-row>
+            <ion-col col-10 class="info-heading">
+                {{previousDay | date:'fullDate'}} Highlights
+            </ion-col>
+            <ion-col col-2 class="info-heading" (click)="toggle()">
+                <ion-icon [name]="icon" color="primary"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid border-bottom class="info-wrapper info-content" [ngClass]="{'open': showDetails == true}">
+        <ion-row>
+            <ion-col col-6>Calls:</ion-col>
+            <ion-col col-6>{{userCallInfo.totalCallLog}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>First/Last Call:</ion-col>
+            <ion-col col-6>{{userCallInfo.memberFirstcall}}/{{userCallInfo.memberLastcall}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>Team Average Calls:</ion-col>
+            <ion-col col-6>{{userCallInfo.averageCallLog}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>Team First/Last Call:</ion-col>
+            <ion-col col-6>{{userCallInfo.teamFirstcall}}/{{userCallInfo.teamLastcall}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>My Ranking</ion-col>
+            <ion-col col-6 *ngIf="userCallInfo.rank == '0'">N/A</ion-col>
+            <ion-col col-6 *ngIf="userCallInfo.rank != '0'">{{userCallInfo.rank}} of {{userCallInfo.totalTeamMember}}</ion-col>            
+        </ion-row>
+    </ion-grid>
+
+    <form class="details-form-wrapper" [formGroup]="detailForm">
+        <ion-grid border-bottom>
+            <ion-row>
+                <ion-col col-5><ion-label>Customer Name</ion-label></ion-col>
+                <ion-col col-7 (click)="getUser()">
+                    <ion-auto-complete [dataProvider]="autoService" #custname></ion-auto-complete>
+                    <small>(E.g. ABC CONSTRUCTION)</small>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-5><ion-label>Contact</ion-label></ion-col>
+                <ion-col col-7>
+                    <ion-auto-complete [dataProvider]="contactService" #contact></ion-auto-complete>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="search-row">
+                <ion-col col-5><ion-label>Site Location</ion-label></ion-col>
+                <ion-col col-7>
+                    <ion-auto-complete [dataProvider]="locationService" #custlocation></ion-auto-complete>
+                    <ion-icon name="locate" (click)="getLocation()"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col col-5><ion-label>Comments</ion-label></ion-col>
+                <ion-col col-7>
+                    <ion-textarea rows="5" formControlName="comment"></ion-textarea>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="like-wrapper">
+                <ion-col col-5><ion-label>Order</ion-label></ion-col>
+                <ion-col col-7>
+                    <ion-list radio-group formControlName="order">
+                        <ion-item>
+                            <ion-label><ion-icon name="thumbs-up" [ngClass]="{'selected': isSelectedUp == true}" on-tap="isSelectedUp = !isSelectedUp; isSelectedDown=false;"></ion-icon></ion-label>
+                            <ion-radio value="Yes"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label><ion-icon name="thumbs-down" [ngClass]="{'selected': isSelectedDown == true}" on-tap="isSelectedDown = !isSelectedDown; isSelectedUp=false;"></ion-icon></ion-label>
+                            <ion-radio value="No"></ion-radio>
+                        </ion-item>
+                    </ion-list>
+                    <div class="error-container" *ngIf="formErrors.order">
+                        <div *ngFor="let errors of formErrors.order">
+                            <p class="alert-danger">{{ errors }}</p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="emoji-wrapper">
+                <ion-col col-5><ion-label>Vibe</ion-label></ion-col>
+                <ion-col col-7>
+                    <ion-list radio-group formControlName="vibe">
+                        <ion-item>
+                            <ion-label> 
+                                <img src="assets/images/ic_happy.png" alt="sentiment_mood"/>
+                                <img src="assets/images/ic_happy_selected.png" alt="sentiment_mood"/>
+                                <div>Great</div>
+                            </ion-label>
+                            <ion-radio value="Great"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>
+                                <img src="assets/images/ic_neutral.png" alt="sentiment_neutral"/>
+                                <img src="assets/images/ic_neutral_selected.png" alt="sentiment_neutral"/>
+                                <div>Okay</div>    
+                            </ion-label>
+                            <ion-radio value="Okay"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <img src="assets/images/ic_sad.png" alt="sentiment_neutral"/>
+                                <img src="assets/images/ic_sad_selected.png" alt="sentiment_neutral"/>   
+                                <div>Bad</div>  
+                            </ion-label>
+                            <ion-radio value="Bad"></ion-radio>
+                        </ion-item>
+                    </ion-list>
+                    <div class="error-container" *ngIf="formErrors.vibe">
+                        <div *ngFor="let errors of formErrors.vibe">
+                            <p class="alert-danger">{{ errors }}</p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div text-center margin>
+            <button ion-button round (tap)="onSubmit(detailForm.value)" [disabled]="!detailForm.valid">Submit</button>
+        </div>
+    </form>
+</ion-content>

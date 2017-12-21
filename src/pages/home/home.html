@@ -1,0 +1,34 @@
+
+<ion-content>
+    <!--  Login Form Starts  -->
+    <img class="login-bg" src="assets/images/login_bg.png" alt="BG"/>
+    <form class="login-form-wrapper" [formGroup]="sampleForm" (ngSubmit)="onSubmit(sampleForm.value)">
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="person" item-right></ion-icon>   
+                <ion-input type="text" placeholder="Last Name" formControlName="username"></ion-input>
+            </ion-item>
+            <div class="error-container" *ngIf="formErrors.username">
+                <div *ngFor="let errors of formErrors.username">
+                    <p class="alert-danger">{{ errors }}</p>
+                </div>
+            </div>
+
+            <ion-item>
+                <ion-icon name="keypad" item-right></ion-icon>  
+                <ion-input type="tel" Placeholder="PhoneNumber" [textMask]="{mask: phoneNumberMask}" formControlName="phone"></ion-input> 
+            </ion-item>
+            <small>(E.g. 917-422-2343)</small>              
+            <div class="error-container" *ngIf="formErrors.phone">
+                <div *ngFor="let errors of formErrors.phone" >
+                    <p class="alert-danger">{{ errors }}<p>
+                </div>
+            </div> 
+        </ion-list>
+        <div text-center margin-top>
+            <button ion-button round type="submit" [disabled]="!sampleForm.valid">Submit</button>
+        </div>
+    </form>
+    <!--  Login Form Ends  -->
+</ion-content>
